@@ -6,8 +6,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 direction;
     public float forwardSpeed;
     private int desiredLane = 1; // 0 is left, 1 is middle, 2 is right;
-    public float laneDistance = 4; //distance between two lanes
-
+    public float laneDistance = 2.5f; //distance between two lanes
+    public float jumpForce; // jump direction
+    public float gravity = -20;
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -17,6 +18,25 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         direction.z = forwardSpeed;
+        controller.Move(direction * Time.fixedDeltaTime);
+
+
+        //jump bind
+        if (controller.isGrounded)
+        {
+            //direction.y = 0;
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+
+                Jump();
+            }
+
+        }
+        else
+        {
+            direction.y += gravity * Time.deltaTime;
+
+        }
 
         //binds for lane input
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -39,6 +59,7 @@ public class PlayerController : MonoBehaviour
         //Calculate where we should be next 
         Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
 
+
         if (desiredLane == 0)
         {
             targetPosition += Vector3.left * laneDistance;
@@ -52,6 +73,10 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        controller.Move(direction * Time.fixedDeltaTime);
+        //controller.Move(direction * Time.fixedDeltaTime);
+    }
+    private void Jump()
+    {
+        direction.y = jumpForce;
     }
 }
