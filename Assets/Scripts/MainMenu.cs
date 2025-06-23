@@ -1,23 +1,14 @@
-using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine;
 
-public class Events : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
-
-    
-
-    public void Start()
-    {
-        
-    }
-    public void RestartGame()
+    public void PlayGame()
     {
         SceneManager.LoadScene("GameScreen");
     }
-
     public void QuitGame()
     {
         Application.Quit();
     }
-
 }

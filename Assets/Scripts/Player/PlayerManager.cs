@@ -1,0 +1,83 @@
+using UnityEngine;
+using System.Collections;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using Unity.VisualScripting;
+
+public class PlayerManager : MonoBehaviour
+{
+    public static bool gameOver;//check game state - Is game over?/is player dead?
+    public GameObject GameOverPanel;//referencing game over panel - "gameEnd" - in UI scene
+
+    //public static bool nextLevel;
+    //public GameObject newScene;
+
+
+    public static bool isGameStarted;
+    public GameObject startingText;
+
+    public static int numberOfCoins;
+    public Text coinsText;
+
+    void Start()
+    {
+        Time.timeScale = 1;
+        gameOver = false; //if false - Game is not over yet - set as default
+        isGameStarted = false;
+        numberOfCoins = 0;
+        //nextLevel = false;
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (gameOver)
+        {
+            Time.timeScale = 0; //stop game
+            GameOverPanel.SetActive(true); //trigger panel
+            
+
+        }
+        if (Input.GetKeyUp(KeyCode.Space)) 
+        {
+            isGameStarted = true;
+            Destroy(startingText);
+        }
+        coinsText.text="Coins: " + numberOfCoins;
+
+        //if (numberOfCoins >= 150)
+        //{
+        //    nextLevel = true;
+        //    Debug.Log("you are ready for the next level");
+        //}
+            
+
+
+        
+    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Player"))
+    //    {
+    //        if (numberOfCoins >= 120)
+    //        {
+    //            nextLevel = true;
+    //            Time.timeScale = 0;
+    //            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+    //            Debug.Log("you are ready for the next level");
+                
+    //        }
+            
+
+    //    }
+    //}
+    //public void NextLevel()
+    //{
+    //    SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+    //}
+
+
+
+
+}

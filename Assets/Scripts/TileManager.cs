@@ -10,6 +10,7 @@ public class TileManager : MonoBehaviour
     public int numberOfTiles = 5;
     public Transform playerTransform;
     private List<GameObject> activeTiles = new List<GameObject>();
+    
     void Start()
     {
        for(int i = 0; i < tilePrefabs.Length; i++)
@@ -37,6 +38,7 @@ public class TileManager : MonoBehaviour
         activeTiles.Add(go);
         zSpawn += tileLength;
 
+       
     }
     private void DeleteTile()
     {
