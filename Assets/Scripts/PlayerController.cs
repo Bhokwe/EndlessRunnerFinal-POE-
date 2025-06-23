@@ -12,9 +12,10 @@ public class PlayerController : MonoBehaviour
     public float laneDistance = 2.5f; //distance between two lanes
     public float jumpForce; // jump direction
     public float gravity = -20;
+    public float maxSpeed;
     public bool isAlive = true; //check player state bool
-    public GameObject gameEndPanel; //for isAlive method - To call/invoke panel from UI scene 
-    private bool activePanel = false;//setting default state for panel, as it should be, in the project - should show panel when true
+    public GameObject GameOverPanel; //for isAlive method - To call/invoke panel from UI scene 
+    //private bool activePanel = false;//setting default state for panel, as it should be, in the project - should show panel when true
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -23,6 +24,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!PlayerManager.isGameStarted)
+            return;
+        //Increase speed
+        if(forwardSpeed<maxSpeed)
+        forwardSpeed += 0.08f * Time.deltaTime;
+
+
         direction.z = forwardSpeed;
         controller.Move(direction * Time.fixedDeltaTime);
 
@@ -86,29 +94,29 @@ public class PlayerController : MonoBehaviour
         direction.y = jumpForce;
     }
 
-    void IsAlive()
-    {
-        if (isAlive) //check bool - Is player alive?
-        {
-            Update();
-        }
+    //void IsAlive()
+    //{
+    //    if (isAlive) //check bool - Is player alive?
+    //    {
+    //        Update();
+    //    }
         
-        if (!isAlive)
-        {
-            isAlive = false;
-            Time.timeScale = 0;//stop game
+    //    if (!isAlive)
+    //    {
+    //        isAlive = false;
+    //        Time.timeScale = 0;//stop game
 
-            //Call/invoke death panel below
+    //        //Call/invoke death panel below
 
-            gameEndPanel = GameObject.Find("gameEnd"); //intended to find asset with corresponding name
+    //        gameEndPanel = GameObject.Find("gameEnd"); //intended to find asset with corresponding name
 
-            if( gameEndPanel != null)//if game object is found.
-            {
-                Debug.Log("Found gameEnd panel!");//check
-                activePanel = true;//activate/show panel
-            }
-        }
-    }
+    //        if( gameEndPanel != null)//if game object is found.
+    //        {
+    //            Debug.Log("Found gameEnd panel!");//check
+    //            activePanel = true;//activate/show panel
+    //        }
+    //    }
+    //}
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
