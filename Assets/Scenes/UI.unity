@@ -945,7 +945,7 @@ GameObject:
   - component: {fileID: 696178982}
   - component: {fileID: 696178981}
   m_Layer: 5
-  m_Name: GameEnd
+  m_Name: gameEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2784,7 +2784,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2099092962
 MonoBehaviour:
   m_ObjectHideFlags: 0

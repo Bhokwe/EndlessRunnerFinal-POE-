@@ -1,4 +1,7 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +12,9 @@ public class PlayerController : MonoBehaviour
     public float laneDistance = 2.5f; //distance between two lanes
     public float jumpForce; // jump direction
     public float gravity = -20;
+    public bool isAlive = true; //check player state bool
+    public GameObject gameEndPanel; //for isAlive method - To call/invoke panel from UI scene 
+    private bool activePanel = false;//setting default state for panel, as it should be, in the project - should show panel when true
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -78,5 +84,37 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         direction.y = jumpForce;
+    }
+
+    void IsAlive()
+    {
+        if (isAlive) //check bool - Is player alive?
+        {
+            Update();
+        }
+        
+        if (!isAlive)
+        {
+            isAlive = false;
+            Time.timeScale = 0;//stop game
+
+            //Call/invoke death panel below
+
+            gameEndPanel = GameObject.Find("gameEnd"); //intended to find asset with corresponding name
+
+            if( gameEndPanel != null)//if game object is found.
+            {
+                Debug.Log("Found gameEnd panel!");//check
+                activePanel = true;//activate/show panel
+            }
+        }
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(hit.transform.tag == "Obstacle")
+        {
+            PlayerManager.gameOver = true;//conditional bool change - changing PlayerManager bool default 
+        }
     }
 }

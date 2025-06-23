@@ -148,6 +148,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CyberCubeV2
       objectReference: {fileID: 0}
+    - target: {fileID: 3672466762399100563, guid: af3370fbcee668346abf12de2a48f900, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 4160457151804503081, guid: af3370fbcee668346abf12de2a48f900, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
