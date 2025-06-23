@@ -14,11 +14,28 @@ public class PlayerController : MonoBehaviour
     public float gravity = -20;
     public float maxSpeed;
     public bool isAlive = true; //check player state bool
-    //public GameObject GameOverPanel; //for isAlive method - To call/invoke panel from UI scene 
-    //private bool activePanel = false;//setting default state for panel, as it should be, in the project - should show panel when true
+    public float boostedSpeed;
+    public bool isBoosted = false;
     void Start()
     {
         controller = GetComponent<CharacterController>();
+    }
+    public void IncreaseSpeed(float boostAmount, float duration)
+    {
+        if (!isBoosted)
+        {
+            isBoosted = true;
+            forwardSpeed += boostAmount;
+            StartCoroutine(ResetSpeedAfterDelay(boostAmount, duration));
+        }
+
+    }
+    private System.Collections.IEnumerator ResetSpeedAfterDelay(float boostAmount, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        forwardSpeed -= boostAmount;
+        isBoosted = false;
+
     }
 
     // Update is called once per frame
@@ -89,34 +106,11 @@ public class PlayerController : MonoBehaviour
     {
         //controller.Move(direction * Time.fixedDeltaTime);
     }
-    private void Jump()
+    public void Jump()
     {
         direction.y = jumpForce;
     }
 
-    //void IsAlive()
-    //{
-    //    if (isAlive) //check bool - Is player alive?
-    //    {
-    //        Update();
-    //    }
-        
-    //    if (!isAlive)
-    //    {
-    //        isAlive = false;
-    //        Time.timeScale = 0;//stop game
-
-    //        //Call/invoke death panel below
-
-    //        gameEndPanel = GameObject.Find("gameEnd"); //intended to find asset with corresponding name
-
-    //        if( gameEndPanel != null)//if game object is found.
-    //        {
-    //            Debug.Log("Found gameEnd panel!");//check
-    //            activePanel = true;//activate/show panel
-    //        }
-    //    }
-    //}
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {

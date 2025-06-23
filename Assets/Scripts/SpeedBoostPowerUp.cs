@@ -20,6 +20,10 @@ public class SpeedBoostPowerUp : MonoBehaviour
             
             Destroy(gameObject);
         }
-
+        PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
+        if (playerController != null)
+        {
+            playerController.IncreaseSpeed(2f, 5f);
+        }
     }
 }

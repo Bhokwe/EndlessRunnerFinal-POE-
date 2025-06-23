@@ -292,6 +292,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikes
       objectReference: {fileID: 0}
+    - target: {fileID: 6185896573997568717, guid: 6b8ddf8f09000b847924589599e1cb14, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6508697102504632018, guid: 6b8ddf8f09000b847924589599e1cb14, type: 3}
       propertyPath: m_LocalScale.x
       value: 3.8537073
@@ -310,7 +314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6508697102504632018, guid: 6b8ddf8f09000b847924589599e1cb14, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6508697102504632018, guid: 6b8ddf8f09000b847924589599e1cb14, type: 3}
       propertyPath: m_LocalPosition.z

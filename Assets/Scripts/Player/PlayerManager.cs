@@ -46,38 +46,8 @@ public class PlayerManager : MonoBehaviour
         }
         coinsText.text="Coins: " + numberOfCoins;
 
-        //if (numberOfCoins >= 150)
-        //{
-        //    nextLevel = true;
-        //    Debug.Log("you are ready for the next level");
-        //}
-            
-
-
-        
+           
     }
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("Player"))
-    //    {
-    //        if (numberOfCoins >= 120)
-    //        {
-    //            nextLevel = true;
-    //            Time.timeScale = 0;
-    //            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
-    //            Debug.Log("you are ready for the next level");
-                
-    //        }
-            
-
-    //    }
-    //}
-    //public void NextLevel()
-    //{
-    //    SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
-    //}
-
-
 
 
 }
