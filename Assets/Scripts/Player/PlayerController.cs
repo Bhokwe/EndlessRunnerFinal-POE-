@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
 
-                Jump();
+                Jump(jumpForce);
             }
 
         }
@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
     {
         //controller.Move(direction * Time.fixedDeltaTime);
     }
-    public void Jump()
+    public void Jump(float jumpForce)
     {
         direction.y = jumpForce;
     }

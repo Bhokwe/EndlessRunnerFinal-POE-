@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class JumpingPad : MonoBehaviour
 {
-    //public float jumpForce = 25;
+    public float jumpHeight = 15;
 
     void Start()
     {
@@ -14,18 +14,19 @@ public class JumpingPad : MonoBehaviour
     {
         
     }
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.tag == "Player")
-    //    {
-    //        jumpForce += 10;
+    private void OnTriggerEnter(Collider other)
+    {
+        PlayerController player = GetComponent<PlayerController>();
+        if (player != null)
+        {
+            player.Jump(jumpHeight);
 
-    //    }
-
-       
-
+        }
 
 
 
-    //}
-}
+
+
+
+        }
+    }
