@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+Assets/Firebase/88 filter=lfs diff=lfs merge=lfs -text
+Assets/Firebase/** filter=lfs diff=lfs merge=lfs -text
+EndlessRunnerFinal(POE)/Assets/Firebase/** filter=lfs diff=lfs merge=lfs -text
