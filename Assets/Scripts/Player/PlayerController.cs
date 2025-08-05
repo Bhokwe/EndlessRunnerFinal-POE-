@@ -117,6 +117,7 @@ public class PlayerController : MonoBehaviour
         if(hit.transform.tag == "Obstacle")
         {
             PlayerManager.gameOver = true;//conditional bool change - changing PlayerManager bool default 
+            FindObjectOfType<AudioManager>().PlaySound("Death");
         }
     }
 }

@@ -17,7 +17,8 @@ public class SpeedBoostPowerUp : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            
+            FindObjectOfType<AudioManager>().PlaySound("SpeedBoost");
+
             Destroy(gameObject);
         }
         PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
