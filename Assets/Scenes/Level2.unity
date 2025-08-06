@@ -2405,11 +2405,11 @@ MonoBehaviour:
   sounds:
   - name: Main Theme
     clip: {fileID: 8300000, guid: 30510a35bfd53435e9963c3a7594417b, type: 3}
-    volume: 0.2
+    volume: 0.07
     loop: 1
     source: {fileID: 0}
   - name: Death
-    clip: {fileID: 8300000, guid: b9ba6bc6bbdf0924eb50cc7cfae262cb, type: 3}
+    clip: {fileID: 8300000, guid: 44d7595e0e22a1e47b19a50e7515fe34, type: 3}
     volume: 1
     loop: 0
     source: {fileID: 0}

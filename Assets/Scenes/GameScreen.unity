@@ -839,7 +839,8 @@ MonoBehaviour:
   gravity: -12
   maxSpeed: 12
   isAlive: 1
-  GameOverPanel: {fileID: 0}
+  boostedSpeed: 0
+  isBoosted: 0
 --- !u!1 &382397069
 GameObject:
   m_ObjectHideFlags: 0
@@ -1270,6 +1271,71 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverHeight: 5
   hoverSpeed: 2
+--- !u!1 &522378039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 522378041}
+  - component: {fileID: 522378040}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &522378040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522378039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725f4a75149d8e148898301057833d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Main Theme
+    clip: {fileID: 8300000, guid: 30510a35bfd53435e9963c3a7594417b, type: 3}
+    volume: 0.07
+    loop: 1
+    source: {fileID: 0}
+  - name: Death
+    clip: {fileID: 8300000, guid: 44d7595e0e22a1e47b19a50e7515fe34, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PickUpCoin
+    clip: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
+    volume: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: SpeedBoost
+    clip: {fileID: 8300000, guid: ff5f85da24bc943d1abdc5760a22bc81, type: 3}
+    volume: 0.2
+    loop: 0
+    source: {fileID: 0}
+--- !u!4 &522378041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522378039}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &565963012
 GameObject:
   m_ObjectHideFlags: 0
@@ -2146,71 +2212,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005075799}
   m_CullTransparentMesh: 1
---- !u!1 &1061766093
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1061766095}
-  - component: {fileID: 1061766094}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1061766094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1061766093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 956b25ef2bad5734bbfba3278cf0641a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: Main Theme
-    clip: {fileID: 8300000, guid: 30510a35bfd53435e9963c3a7594417b, type: 3}
-    volume: 0.15
-    loop: 1
-    source: {fileID: 0}
-  - name: PickUpCoin
-    clip: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
-    volume: 0.25
-    loop: 0
-    source: {fileID: 0}
-  - name: Death
-    clip: {fileID: 8300000, guid: 44d7595e0e22a1e47b19a50e7515fe34, type: 3}
-    volume: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: SpeedBoost
-    clip: {fileID: 8300000, guid: ff5f85da24bc943d1abdc5760a22bc81, type: 3}
-    volume: 0.2
-    loop: 0
-    source: {fileID: 0}
---- !u!4 &1061766095
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1061766093}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1200535379
 GameObject:
   m_ObjectHideFlags: 0
@@ -4090,7 +4091,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff3c20397e98354487278c65c22abba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonimator: {fileID: 1954489572}
 --- !u!1 &2138155807
 GameObject:
   m_ObjectHideFlags: 0
@@ -4183,4 +4183,4 @@ SceneRoots:
   - {fileID: 804181034}
   - {fileID: 1200535382}
   - {fileID: 922397647}
-  - {fileID: 1061766095}
+  - {fileID: 522378041}
