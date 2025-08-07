@@ -35,8 +35,9 @@ public class PlayerManager : MonoBehaviour
         if (gameOver)
         {
             Time.timeScale = 0; //stop game
+            CloudSave.Instance.SaveData(); //Save data when game is over - should save data in every instance that timescale is 0.
             GameOverPanel.SetActive(true); //trigger panel
-            
+
 
         }
         if (Input.GetKeyUp(KeyCode.Space)) 
