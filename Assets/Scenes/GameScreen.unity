@@ -735,7 +735,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1305,7 +1305,7 @@ MonoBehaviour:
   sounds:
   - name: Main Theme
     clip: {fileID: 8300000, guid: 30510a35bfd53435e9963c3a7594417b, type: 3}
-    volume: 0.07
+    volume: 0.06
     loop: 1
     source: {fileID: 0}
   - name: Death

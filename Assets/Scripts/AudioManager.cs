@@ -4,7 +4,7 @@ public class AudioManager : MonoBehaviour
     public Sound[] sounds;
     void Start()
     {
-        foreach(Sound s in sounds)
+        foreach(Sound s in sounds) //main theme to loop
         {
             s.source= gameObject.AddComponent<AudioSource>();
 
@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
         }
         PlaySound("Main Theme");
 
+        PlaySound("MainClick");
     }
 
     public void PlaySound(string name)

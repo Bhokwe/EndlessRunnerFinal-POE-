@@ -69,7 +69,7 @@ public class PlayerManager : MonoBehaviour, IListener
         coinsText.text="Coins: " + numberOfCoins;
         //ScoreText.text = "Score: " + score;
 
-           
+
     }
 
     public void OnEvent (EventType eventType, Component sender, object param = null)
