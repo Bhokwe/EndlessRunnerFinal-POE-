@@ -1,32 +1,27 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class JumpingPad : MonoBehaviour
 {
-    public float jumpHeight = 15;
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnTriggerEnter(Collider other)
     {
-        PlayerController player = GetComponent<PlayerController>();
-        if (player != null)
+        if(other.tag == "Player")
         {
-            player.Jump(jumpHeight);
+            FindObjectOfType<AudioManager>().PlaySound("jumpPad");
 
+            
+        }
+        PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
+        if (playerController != null)
+        {
+            playerController.SuperJump( 10f, 3f);
         }
 
+        Destroy(gameObject);
 
 
 
 
 
-        }
     }
+}

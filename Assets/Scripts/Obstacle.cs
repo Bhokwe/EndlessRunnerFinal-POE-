@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Obstacle : MonoBehaviour
 {
@@ -6,11 +7,8 @@ public class Obstacle : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //Player passed the obstacle? Raise the event.
-            EventBus.PlayerPassedObstacle?.Invoke();
+            EventBus.Instance.PostNotification(EventType.OBSTACLE_PASSED, this, 10);
 
-            //Increase the score by 10
-            EventBus.ScoreChanged?.Invoke(10);
         }
     }
 }

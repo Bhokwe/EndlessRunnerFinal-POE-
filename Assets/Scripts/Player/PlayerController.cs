@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.Rendering;
 
 
 public class PlayerController : MonoBehaviour
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public bool isAlive = true; //check player state bool
     public float boostedSpeed;
     public bool isBoosted = false;
+    public float jumpHeight;
+    public bool isJumping = false;
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -35,6 +38,23 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(delay);
         forwardSpeed -= boostAmount;
         isBoosted = false;
+
+    }
+
+    public void SuperJump(float jumpBoost, float duration)
+    {
+        if (!isJumping)
+        {
+            isJumping = true;
+            jumpForce += jumpBoost;
+            StartCoroutine(ResetJumpAfterDelay(jumpBoost, duration));
+        }
+    }
+    private System.Collections.IEnumerator ResetJumpAfterDelay(float jumpBoost, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        jumpForce -= jumpBoost;
+        isJumping = false;
 
     }
 

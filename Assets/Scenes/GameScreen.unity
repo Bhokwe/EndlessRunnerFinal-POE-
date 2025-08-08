@@ -841,6 +841,8 @@ MonoBehaviour:
   isAlive: 1
   boostedSpeed: 0
   isBoosted: 0
+  jumpHeight: 0
+  isJumping: 0
 --- !u!1 &382397069
 GameObject:
   m_ObjectHideFlags: 0
@@ -1308,17 +1310,22 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Death
     clip: {fileID: 8300000, guid: 44d7595e0e22a1e47b19a50e7515fe34, type: 3}
-    volume: 1
+    volume: 0.1
     loop: 0
     source: {fileID: 0}
   - name: PickUpCoin
     clip: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
-    volume: 0.1
+    volume: 0.15
     loop: 0
     source: {fileID: 0}
   - name: SpeedBoost
     clip: {fileID: 8300000, guid: ff5f85da24bc943d1abdc5760a22bc81, type: 3}
-    volume: 0.2
+    volume: 0.15
+    loop: 0
+    source: {fileID: 0}
+  - name: JumpPad
+    clip: {fileID: 8300000, guid: ff5f85da24bc943d1abdc5760a22bc81, type: 3}
+    volume: 0.05
     loop: 0
     source: {fileID: 0}
 --- !u!4 &522378041
@@ -1602,6 +1609,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 696178976}
   m_CullTransparentMesh: 1
+--- !u!1 &727602058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 727602060}
+  - component: {fileID: 727602059}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &727602059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727602058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02b12fa30eba6464b8f31cdbf1ea04e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreText: {fileID: 0}
+--- !u!4 &727602060
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727602058}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &728530612
 GameObject:
   m_ObjectHideFlags: 0
@@ -2121,6 +2173,7 @@ MonoBehaviour:
   GameOverPanel: {fileID: 1911013614}
   startingText: {fileID: 1958162388}
   coinsText: {fileID: 1819165695}
+  ScoreText: {fileID: 382397071}
 --- !u!4 &982106169
 Transform:
   m_ObjectHideFlags: 0
@@ -3277,6 +3330,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661444734}
   m_CullTransparentMesh: 1
+--- !u!1 &1695958387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1695958389}
+  - component: {fileID: 1695958388}
+  m_Layer: 0
+  m_Name: EventBus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1695958388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695958387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ffda41158d55c94a9153908334041e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1695958389
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695958387}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1815903206
 GameObject:
   m_ObjectHideFlags: 0
@@ -4184,3 +4281,5 @@ SceneRoots:
   - {fileID: 1200535382}
   - {fileID: 922397647}
   - {fileID: 522378041}
+  - {fileID: 1695958389}
+  - {fileID: 727602060}
